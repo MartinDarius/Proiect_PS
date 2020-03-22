@@ -24,17 +24,19 @@ public class DemoApplication {
        // Client primul=new Client("Ioan","Ioan@yahoo.com",true,"incepator");
         //clientServ.insertClient(primul);
 		Client x=clientServ.findById("18");
-		System.out.println(x.toString());
+		//System.out.println(x.toString());
 		ArrayList<Client> list=clientServ.findAll();
-			System.out.println(list.toString());
+		//	System.out.println(list.toString());
 
 		//Echipament primulEchipament=new Echipament("Head","ski",false);
 		//EchipamentService echipService=new EchipamentService();
 		//echipService.insert(primulEchipament);
 
-		SkiMonitor primulMonitor=new SkiMonitor("Iancu","iancu@yahoo.com",true,false,"snowboard");
-		MonitorService monitorService=new MonitorService();
-		monitorService.insertMonitor(primulMonitor);
+		//SkiMonitor primulMonitor=new SkiMonitor("Iancu","iancu@yahoo.com",true,false,"snowboard");
+		//MonitorService monitorService=new MonitorService();
+		//monitorService.insertMonitor(primulMonitor);
+
+		System.out.println(clientServ.NrOfClients());
 
 	}
 

@@ -9,18 +9,39 @@ import java.util.List;
 public class ClientService {
 
     ClientRepo repo=new ClientRepo();
+
+    /**
+     * Insereaza un client in baza de date
+     * @param client clientul care este inserat
+     */
     public void insertClient(Client client){
         repo.insert(client);
     }
+
+    /**
+     * gaseste clientul cu id ul respectiv
+     * @param id Id ul care este cautat in baza de date
+     * @return clientul cu id ul respectiv
+     */
     public Client findById(String id){
         Client client=repo.findById(id);
         return client;
-}
+    }
+
+    /**
+     *
+     * @return returneaza o lista cu toti clientii de baza de date
+     */
     public ArrayList<Client> findAll(){
         ArrayList<Client> list=repo.findAll();
         return list;
     }
 
+    /**
+     * sterge un client din baza de date
+     * @param sid acest id este id ul clientului care urmeaza a fi sters
+     * @return true daca s-a gasit si sters clientul, false in caz contrar
+     */
     public boolean stergeClient(Long sid){
         String id= sid.toString();
         Client client=repo.findById(id);
@@ -32,5 +53,13 @@ public class ClientService {
         if(inainte!=dupa)
             return true;
         return false;
+    }
+
+    /**
+     *
+     * @return numarul de clienti din BD
+     */
+    public int NrOfClients(){
+        return repo.NrOfClients();
     }
 }

@@ -60,14 +60,7 @@ public class DemoApplicationTests {
 		assertEquals("Ioan",facadeSample.findClient("6").getNume());
 		verify(sampleOperations).FindClientById("6");
 	}
-/*
-	@Test
-	public void testFindClientById(){
-		when(sampleOperations.FindClientById("6")).thenReturn(new Client("Ioan","Ioan@yahoo.com",true,"incepator",false));
-		assertEquals("Ioan",facadeSample.findClient("6").getNume());
-	    verify(sampleOperations).FindClientById("6");
-	}
-*/
+
 	@Test
 	public void testFindEchipamentById(){
 		when(sampleOperations.FindEchipamentById("33")).thenReturn(echipamentservice.findById("33"));
@@ -81,4 +74,6 @@ public class DemoApplicationTests {
 		assertEquals("Iancu",facadeSample.findMonitor("35").getNume());
 		verify(sampleOperations).FindMonitorById("35");
 	}
+
+
 }
