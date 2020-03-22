@@ -15,6 +15,15 @@ public class Echipament {
     private String nume;
     private boolean stare;
 
+    public Echipament(String nume,String tip,boolean stare){
+        this.nume=nume;
+        this.tip=tip;
+        this.stare=stare;
+    }
+    public Echipament(){
+
+    }
+
     public Integer getId() {
         return id;
     }

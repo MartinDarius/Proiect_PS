@@ -15,17 +15,21 @@ public class Client {
     private String email;
     private boolean echipament;
     private String tip;
+    private boolean monitor;
 
-    public Client(String nume,String email,boolean echipament,String tip){
+    public Client(String nume,String email,boolean echipament,String tip,boolean monitor){
         this.nume=nume;
         this.email=email;
         this.echipament=echipament;
         this.tip=tip;
+        this.monitor=monitor;
     }
 
     public Client() {
 
     }
+
+
 
     public Integer getId() {
         return id;
@@ -65,6 +69,14 @@ public class Client {
 
     public void setEchipamnet(boolean echipament) {
         this.echipament = echipament;
+    }
+
+    public boolean getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(boolean monitor) {
+        this.monitor = monitor;
     }
 
     public String toString(){

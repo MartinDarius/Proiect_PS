@@ -2,6 +2,11 @@ package com.example.sd2020.demo;
 
 import com.example.sd2020.demo.arch.FacadeSample;
 import com.example.sd2020.demo.arch.SampleOperations;
+import com.example.sd2020.demo.entity.Client;
+import com.example.sd2020.demo.entity.Echipament;
+import com.example.sd2020.demo.service.ClientService;
+import com.example.sd2020.demo.service.EchipamentService;
+import com.example.sd2020.demo.service.MonitorService;
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -17,6 +22,9 @@ import static org.mockito.Mockito.*;
 
 public class DemoApplicationTests {
 
+	ClientService clientservice=new ClientService();
+	EchipamentService echipamentservice=new EchipamentService();
+	MonitorService monitorservice=new MonitorService();
 	@Mock
 	SampleOperations sampleOperations;
 	@Rule
@@ -44,5 +52,33 @@ public class DemoApplicationTests {
 		when(sampleOperations.getList()).thenReturn(expectedList);
 		List<Integer> currentList = facadeSample.retrieveList();
 		assertEquals(expectedList, currentList);
+	}
+
+	@Test
+	public void testFindClientById(){
+		when(sampleOperations.FindClientById("6")).thenReturn(clientservice.findById("6"));
+		assertEquals("Ioan",facadeSample.findClient("6").getNume());
+		verify(sampleOperations).FindClientById("6");
+	}
+/*
+	@Test
+	public void testFindClientById(){
+		when(sampleOperations.FindClientById("6")).thenReturn(new Client("Ioan","Ioan@yahoo.com",true,"incepator",false));
+		assertEquals("Ioan",facadeSample.findClient("6").getNume());
+	    verify(sampleOperations).FindClientById("6");
+	}
+*/
+	@Test
+	public void testFindEchipamentById(){
+		when(sampleOperations.FindEchipamentById("33")).thenReturn(echipamentservice.findById("33"));
+		assertEquals("Head",facadeSample.findEchipament("33").getNume());
+		verify(sampleOperations).FindEchipamentById("33");
+	}
+
+	@Test
+	public void testFindMonitorById(){
+		when(sampleOperations.FindMonitorById("35")).thenReturn(monitorservice.findById("35"));
+		assertEquals("Iancu",facadeSample.findMonitor("35").getNume());
+		verify(sampleOperations).FindMonitorById("35");
 	}
 }

@@ -15,7 +15,7 @@ public class ClientService {
     public Client findById(String id){
         Client client=repo.findById(id);
         return client;
-    }
+}
     public ArrayList<Client> findAll(){
         ArrayList<Client> list=repo.findAll();
         return list;

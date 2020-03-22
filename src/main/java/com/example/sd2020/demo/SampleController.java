@@ -51,7 +51,7 @@ public class SampleController {
     }
     @RequestMapping(value={"/{insertClient}"},method=RequestMethod.POST)
     public String insertClientRequest(@PathVariable String insertClient,@RequestBody Client client) throws ParseException{
-        clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getEchipament(),client.getTip()));
+        clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getEchipament(),client.getTip(),client.getMonitor()));
        return "Inserted successfuly";
     }
 
