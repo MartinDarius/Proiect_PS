@@ -7,6 +7,8 @@ import com.example.sd2020.demo.service.ClientService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.ArrayList;
+
 @SpringBootApplication
 public class DemoApplication {
 
@@ -17,8 +19,11 @@ public class DemoApplication {
 		ClientService clientServ=new ClientService();
        // Client primul=new Client("Ioan","Ioan@yahoo.com",true,"incepator");
         //clientServ.insertClient(primul);
-		Client x=clientServ.findById("4");
+		Client x=clientServ.findById("18");
 		System.out.println(x.toString());
+		ArrayList<Client> list=clientServ.findAll();
+			System.out.println(list.toString());
+
 	}
 
 }

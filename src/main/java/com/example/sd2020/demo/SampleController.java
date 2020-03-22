@@ -2,6 +2,8 @@ package com.example.sd2020.demo;
 
 import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.service.ClientService;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
@@ -36,6 +38,11 @@ public class SampleController {
         sampleList.add(item);
     }
 
+    @GetMapping("/allClients")
+    public ArrayList<Client> getAllClients(){
+        return clientService.findAll();
+    }
+
     @RequestMapping(value={"/{findClientById}"},method= RequestMethod.GET)
     public Client findClientById(@PathVariable String findClientById, @RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
@@ -46,5 +53,14 @@ public class SampleController {
     public String insertClientRequest(@PathVariable String insertClient,@RequestBody Client client) throws ParseException{
         clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getEchipament(),client.getTip()));
        return "Inserted successfuly";
+    }
+
+    @DeleteMapping(value="/deleteClient/{id}")
+    public ResponseEntity<Long> deleteClient(@PathVariable Long id){
+        boolean isRemoved=clientService.stergeClient(id);
+        if(!isRemoved){
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(id,HttpStatus.OK);
     }
 }

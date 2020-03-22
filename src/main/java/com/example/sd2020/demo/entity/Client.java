@@ -70,4 +70,6 @@ public class Client {
     public String toString(){
         return this.nume+" "+this.email;
     }
+
+    public void updateEchipament(boolean val){ this.echipament=val;}
 }

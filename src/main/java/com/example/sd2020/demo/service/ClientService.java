@@ -16,4 +16,21 @@ public class ClientService {
         Client client=repo.findById(id);
         return client;
     }
+    public ArrayList<Client> findAll(){
+        ArrayList<Client> list=repo.findAll();
+        return list;
+    }
+
+    public boolean stergeClient(Long sid){
+        String id= sid.toString();
+        Client client=repo.findById(id);
+        if(client==null)
+            return false;
+        int inainte=repo.NrOfClients();
+        repo.delete(client);
+        int dupa=repo.NrOfClients();
+        if(inainte!=dupa)
+            return true;
+        return false;
+    }
 }

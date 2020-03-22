@@ -13,6 +13,7 @@ public class Echipament {
 
     private String tip;
     private String nume;
+    private boolean stare;
 
     public Integer getId() {
         return id;
@@ -36,5 +37,9 @@ public class Echipament {
     public void setNume(String nume) {
         this.nume = nume;
     }
+
+    public boolean getStare(){return this.stare;}
+
+    public void setStare(boolean val){this.stare=val;}
 
 }
