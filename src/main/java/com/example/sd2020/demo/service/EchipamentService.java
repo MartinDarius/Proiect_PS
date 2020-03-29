@@ -4,9 +4,21 @@ import com.example.sd2020.demo.entity.Echipament;
 import com.example.sd2020.demo.repository.EchipamentRepo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class EchipamentService {
     EchipamentRepo repo=new EchipamentRepo();
+    private String news;
+    private List<Observator> observatori=new ArrayList<>();
+
+    public void addObserver(Observator channel) {
+        this.observatori.add(channel);
+    }
+
+    public void removeObserver(Observator channel) {
+        this.observatori.remove(channel);
+    }
+
 
     /**
      * insereaza un echipament in baza de date
@@ -47,6 +59,17 @@ public class EchipamentService {
         }
         repo.delete(echip);
         return true;
+    }
+
+    public void setInchiriat(String id){
+
+        Echipament echip=repo.findById(id);
+        repo.updateStare(echip,true);
+        this.news="Echipamentul cu id-ul:"+id+" a fost inchiriat.";
+        for(Observator obs: this.observatori){
+            obs.update(this.news);
+        }
+
     }
 
 }

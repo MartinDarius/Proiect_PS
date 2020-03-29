@@ -1,18 +1,29 @@
 package com.example.sd2020.demo.entity;
 
+import com.example.sd2020.demo.service.Observator;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity // This tells Hibernate to make a table out of this class
-public class Admin {
+public class Admin implements Observator {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Integer id;
 
     private String name;
     private String email;
+    private String news;
+
+    public void setNews(String news){
+        this.news=news;
+    }
+
+    public String getNews(){
+        return this.news;
+    }
 
     public Integer getId() {
         return id;
@@ -36,5 +47,11 @@ public class Admin {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public void update(Object news) {
+        this.setNews((String) news);
+        System.out.println(news);
     }
 }

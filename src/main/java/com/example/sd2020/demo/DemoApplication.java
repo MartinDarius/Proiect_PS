@@ -1,5 +1,6 @@
 package com.example.sd2020.demo;
 
+import com.example.sd2020.demo.entity.Admin;
 import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.entity.Echipament;
 import com.example.sd2020.demo.entity.SkiMonitor;
@@ -29,14 +30,16 @@ public class DemoApplication {
 		//	System.out.println(list.toString());
 
 		//Echipament primulEchipament=new Echipament("Head","ski",false);
-		//EchipamentService echipService=new EchipamentService();
+		EchipamentService echipService=new EchipamentService();
 		//echipService.insert(primulEchipament);
 
 		//SkiMonitor primulMonitor=new SkiMonitor("Iancu","iancu@yahoo.com",true,false,"snowboard");
 		//MonitorService monitorService=new MonitorService();
 		//monitorService.insertMonitor(primulMonitor);
 
-		System.out.println(clientServ.NrOfClients());
+		Admin observer=new Admin();
+		echipService.addObserver(observer);
+		echipService.setInchiriat("33");
 
 	}
 
