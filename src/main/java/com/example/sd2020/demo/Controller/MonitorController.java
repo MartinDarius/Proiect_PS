@@ -18,14 +18,14 @@ public class MonitorController {
     public ArrayList<SkiMonitor> getAllMonitors(){
         return monitorService.findAll();
     }
-
+    /*
     @RequestMapping(value={"/{findMonitorById}"},method= RequestMethod.GET)
     public SkiMonitor findMonitorById(@PathVariable String findMonitorById, @RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
         System.out.println(sId);
         return monitorService.findById(sId);
     }
-
+*/
     /*
     @RequestMapping(value={"/{insertMonitor}"},method=RequestMethod.POST)
     public String insertMonitorRequest(@PathVariable String insertMonitor,@RequestBody SkiMonitor monitor) throws ParseException{

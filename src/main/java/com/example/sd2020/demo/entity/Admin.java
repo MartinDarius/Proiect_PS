@@ -14,6 +14,7 @@ public class Admin implements Observator {
     private Integer id;
 
     private String name;
+    private String password;
     private String email;
     private String news;
 
@@ -43,6 +44,14 @@ public class Admin implements Observator {
 
     public String getEmail() {
         return email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public void setEmail(String email) {

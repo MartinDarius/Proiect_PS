@@ -1,9 +1,6 @@
 package com.example.sd2020.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Echipament {
@@ -15,11 +12,24 @@ public class Echipament {
     private String nume;
     private boolean stare;
 
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "email")
+    private Client client;
+
+
     public Echipament(String nume,String tip,boolean stare){
         this.nume=nume;
         this.tip=tip;
         this.stare=stare;
     }
+    public Echipament(String nume,String tip,boolean stare,Client client){
+        this.nume=nume;
+        this.tip=tip;
+        this.stare=stare;
+        this.client=client;
+    }
+
+
     public Echipament(){
 
     }

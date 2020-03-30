@@ -1,9 +1,8 @@
 package com.example.sd2020.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity // This tells Hibernate to make a table out of this class
 public class Client {
@@ -13,9 +12,13 @@ public class Client {
 
     private String nume;
     private String email;
+    private String password;
     private boolean echipament;
     private String tip;
     private boolean monitor;
+
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    private List<Echipament> echipamente;
 
     public Client(String nume,String email,boolean echipament,String tip,boolean monitor){
         this.nume=nume;
@@ -25,7 +28,18 @@ public class Client {
         this.monitor=monitor;
     }
 
+    public Client(String nume,String email,String password,boolean echipament,String tip,boolean monitor,List<Echipament> echipamente){
+        this.nume=nume;
+        this.password=password;
+        this.email=email;
+        this.echipament=echipament;
+        this.tip=tip;
+        this.monitor=monitor;
+        this.echipamente=echipamente;
+    }
+
     public Client() {
+        this.echipamente=new ArrayList<Echipament>();
 
     }
 
@@ -84,4 +98,12 @@ public class Client {
     }
 
     public void updateEchipament(boolean val){ this.echipament=val;}
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

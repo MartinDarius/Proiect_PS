@@ -40,6 +40,19 @@ public class ClientRepo {
 
         return client;
     }
+
+    public Client findByEmail(String email){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        Client client = entityManager.find(Client.class, email);
+
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return client;
+    }
+
     public ArrayList<Client> findAll() {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();

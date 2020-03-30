@@ -20,7 +20,7 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 		AdminService ad=new AdminService();
-		ad.addAdmin();
+		//ad.addAdmin();
 		ClientService clientServ=new ClientService();
        // Client primul=new Client("Ioan","Ioan@yahoo.com",true,"incepator");
         //clientServ.insertClient(primul);

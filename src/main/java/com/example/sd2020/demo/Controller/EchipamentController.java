@@ -17,13 +17,15 @@ public class EchipamentController {
     public ArrayList<Echipament> getAllEchipaments(){
         return echipamentService.findAll();
     }
-
+    /*
     @RequestMapping(value={"/{findEchipamentById}"},method= RequestMethod.GET)
     public Echipament findEchipamentById(@PathVariable String findEchipamentById, @RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
         System.out.println(sId);
         return echipamentService.findById(sId);
     }
+
+     */
     /*
     @RequestMapping(value={"/{insertEchipament}"},method=RequestMethod.POST)
     public String insertEchipamentRequest(@PathVariable String insertEchipament,@RequestBody Echipament echipament) throws ParseException{

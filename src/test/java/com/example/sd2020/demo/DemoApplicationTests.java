@@ -53,14 +53,24 @@ public class DemoApplicationTests {
 		List<Integer> currentList = facadeSample.retrieveList();
 		assertEquals(expectedList, currentList);
 	}
-
+    /*
 	@Test
 	public void testFindClientById(){
 		when(sampleOperations.FindClientById("6")).thenReturn(clientservice.findById("6"));
 		assertEquals("Ioan",facadeSample.findClient("6").getNume());
 		verify(sampleOperations).FindClientById("6");
 	}
+     */
 
+    //Asa ar trebui facute toate testele? Ca nu am inteles prea bine....
+	@Test
+	public void testFindClientById(){
+		when(sampleOperations.FindClientById("6")).thenReturn(new Client("Ioan","Ioan@yahoo.com",false,"incepator",true));
+		assertEquals("Ioan",facadeSample.findClient("6").getNume());
+		verify(sampleOperations).FindClientById("6");
+	}
+    //Stiu ca ai spus ca nu e corect in felul urmator:
+	//Daca e corect cel de sus, asa o sa fac la toate.
 	@Test
 	public void testFindEchipamentById(){
 		when(sampleOperations.FindEchipamentById("33")).thenReturn(echipamentservice.findById("33"));

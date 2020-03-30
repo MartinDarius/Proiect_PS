@@ -30,12 +30,20 @@ public class ClientController {
      * @return clientul cautat
      * @throws ParseException
      */
+
     @RequestMapping(value={"/{findClientById}"},method= RequestMethod.GET)
     public Client findClientById(@PathVariable String findClientById, @RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
         System.out.println(sId);
         return clientService.findById(sId);
     }
+    /*
+    @RequestMapping(value={"/{findClientByEmail}"},method= RequestMethod.GET)
+    public Client findClientByEmail(@PathVariable String findClientByEmail, @RequestBody String email) throws ParseException {
+        return clientService.findByEmail(email);
+    }
+    */
+
 
     /**
      * insereaza un client in BD

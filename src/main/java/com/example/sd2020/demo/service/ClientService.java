@@ -28,6 +28,11 @@ public class ClientService {
         return client;
     }
 
+    public Client findByEmail(String email) {
+      Client client=repo.findByEmail(email);
+      return client;
+    }
+
     /**
      *
      * @return returneaza o lista cu toti clientii de baza de date
