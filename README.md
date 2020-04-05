@@ -30,4 +30,8 @@ In intermediul aplicatiei avem in pachetul entity 4 clase principale care sunt s
 Aceste operatii le efectuam prin intermediul pachetului Service care face legatura repository-ului cu restul aplicatiei.
 In aplicatie avem si un pachet pentru teste unde se testeaza diverse metode prin intermediul API-ului Mockito. 
 
+ #Diagrama Use Case
 ![UseCase Diagram](UseCase.png)
+
+ #Diagrama de pachete
+![Package Diagram](pachete.png)
