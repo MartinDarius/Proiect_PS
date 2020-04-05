@@ -41,16 +41,17 @@ public class ClientRepo {
         return client;
     }
 
-    public Client findByEmail(String email){
+    public List<Client> findByEmail(String email){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
-
-        Client client = entityManager.find(Client.class, email);
-
-        entityManager.getTransaction().commit();
+        Query query=entityManager.createQuery("SELECT cl FROM Client cl WHERE cl.email=?1");
+        //Client client = entityManager.find(Client.class, email);
+        query.setParameter(1,email);
+        List<Client> lista=query.getResultList();
+        //entityManager.getTransaction().commit();
         entityManager.close();
 
-        return client;
+        return lista;
     }
 
     public ArrayList<Client> findAll() {

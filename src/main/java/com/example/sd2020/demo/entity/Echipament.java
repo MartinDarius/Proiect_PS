@@ -12,8 +12,8 @@ public class Echipament {
     private String nume;
     private boolean stare;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "email")
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name = "id_client")
     private Client client;
 
 
@@ -32,6 +32,14 @@ public class Echipament {
 
     public Echipament(){
 
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
     }
 
     public Integer getId() {

@@ -8,7 +8,7 @@ import java.util.List;
 public class Client {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    private Integer id_client;
 
     private String nume;
     private String email;
@@ -17,7 +17,7 @@ public class Client {
     private String tip;
     private boolean monitor;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     private List<Echipament> echipamente;
 
     public Client(String nume,String email,boolean echipament,String tip,boolean monitor){
@@ -46,11 +46,11 @@ public class Client {
 
 
     public Integer getId() {
-        return id;
+        return id_client;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_client = id;
     }
 
     public String getNume() {

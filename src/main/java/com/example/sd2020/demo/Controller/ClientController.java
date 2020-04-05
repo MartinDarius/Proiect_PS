@@ -31,18 +31,25 @@ public class ClientController {
      * @throws ParseException
      */
 
-    @RequestMapping(value={"/{findClientById}"},method= RequestMethod.GET)
-    public Client findClientById(@PathVariable String findClientById, @RequestBody int id) throws ParseException {
+    @RequestMapping(value= "/findClient",method= RequestMethod.GET)
+    public Client findClientById(@RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
         System.out.println(sId);
         return clientService.findById(sId);
+
     }
-    /*
-    @RequestMapping(value={"/{findClientByEmail}"},method= RequestMethod.GET)
-    public Client findClientByEmail(@PathVariable String findClientByEmail, @RequestBody String email) throws ParseException {
-        return clientService.findByEmail(email);
+
+    /**
+     *
+     * @param email emailul care se cauta in BD
+     * @return primul client gasit cu emailul respectiv
+     * @throws ParseException
+     */
+    @RequestMapping(value={"/findClientByEmail"},method= RequestMethod.GET)
+    public Client findClientByEmail( @RequestBody String email) throws ParseException {
+        return clientService.findByEmail(email).get(0);
     }
-    */
+
 
 
     /**
@@ -52,8 +59,8 @@ public class ClientController {
      * @return un mesaj in caz de succes sau esec
      * @throws ParseException
      */
-    @RequestMapping(value={"/{insertClient}"},method=RequestMethod.POST)
-    public String insertClientRequest(@PathVariable String insertClient,@RequestBody Client client) throws ParseException{
+    @RequestMapping(value={"/insertClient"},method=RequestMethod.POST)
+    public String insertClientRequest(@RequestBody Client client) throws ParseException{
         int inainte=clientService.NrOfClients();
         clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getEchipament(),client.getTip(),client.getMonitor()));
         int dupa=clientService.NrOfClients();

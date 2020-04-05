@@ -20,26 +20,35 @@ public class DemoApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 		AdminService ad=new AdminService();
-		//ad.addAdmin();
+
+		EchipamentService echipService=new EchipamentService();
 		ClientService clientServ=new ClientService();
-       // Client primul=new Client("Ioan","Ioan@yahoo.com",true,"incepator");
-        //clientServ.insertClient(primul);
-		Client x=clientServ.findById("18");
-		//System.out.println(x.toString());
-		ArrayList<Client> list=clientServ.findAll();
-		//	System.out.println(list.toString());
+		MonitorService monitorService= new MonitorService();
+
+		//ad.addAdmin();
 
 		//Echipament primulEchipament=new Echipament("Head","ski",false);
-		EchipamentService echipService=new EchipamentService();
-		//echipService.insert(primulEchipament);
+		//Echipament alDoileaEchipament=new Echipament("Ficher","ski",false);
 
-		//SkiMonitor primulMonitor=new SkiMonitor("Iancu","iancu@yahoo.com",true,false,"snowboard");
-		//MonitorService monitorService=new MonitorService();
-		//monitorService.insertMonitor(primulMonitor);
+
+
+
+		//ArrayList<Echipament> echipamente=new ArrayList<Echipament>();
+		//echipamente.add(primulEchipament);
+		//echipamente.add(alDoileaEchipament);
+
+
+        //Client primul=new Client("Ionela","Ioan@yahoo.com","pass",false,"incepator",false,echipamente);
+		//primulEchipament.setClient(primul);
+		//alDoileaEchipament.setClient(primul);
+		//clientServ.insertClient(primul);
+        //echipService.insert(primulEchipament);
+		//echipService.insert(alDoileaEchipament);
+
 
 		Admin observer=new Admin();
 		echipService.addObserver(observer);
-		echipService.setInchiriat("33");
+		echipService.setInchiriat("80");
 
 	}
 

@@ -28,9 +28,9 @@ public class ClientService {
         return client;
     }
 
-    public Client findByEmail(String email) {
-      Client client=repo.findByEmail(email);
-      return client;
+    public List<Client> findByEmail(String email) {
+      List<Client> lista=repo.findByEmail(email);
+      return lista;
     }
 
     /**

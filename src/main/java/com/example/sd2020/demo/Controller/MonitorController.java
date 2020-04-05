@@ -18,21 +18,21 @@ public class MonitorController {
     public ArrayList<SkiMonitor> getAllMonitors(){
         return monitorService.findAll();
     }
-    /*
-    @RequestMapping(value={"/{findMonitorById}"},method= RequestMethod.GET)
-    public SkiMonitor findMonitorById(@PathVariable String findMonitorById, @RequestBody int id) throws ParseException {
+
+    @RequestMapping(value={"/findMonitor"},method= RequestMethod.GET)
+    public SkiMonitor findMonitorById( @RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
         System.out.println(sId);
         return monitorService.findById(sId);
     }
-*/
-    /*
-    @RequestMapping(value={"/{insertMonitor}"},method=RequestMethod.POST)
-    public String insertMonitorRequest(@PathVariable String insertMonitor,@RequestBody SkiMonitor monitor) throws ParseException{
-        monitorService.insertMonitor(new SkiMonitor(monitor.getNume(),monitor.getEmail(),monitor.getEchipament(),monitor.getDisponibilitate(),monitor.getTip()));
+
+
+    @RequestMapping(value={"/insertMonitor"},method=RequestMethod.POST)
+    public String insertMonitorRequest(@RequestBody SkiMonitor monitor) throws ParseException{
+        monitorService.insertMonitor(new SkiMonitor(monitor.getNume(),monitor.getEmail(),monitor.getPassword(),monitor.getEchipament(),monitor.getDisponibilitate(),monitor.getTip()));
         return "Inserted successfuly";
     }
-    */
+
 
     @DeleteMapping(value="/deleteMonitor/{id}")
     public ResponseEntity<Long> deleteMonitor(@PathVariable Long id){
