@@ -46,9 +46,7 @@ public class DemoApplication {
 		//echipService.insert(alDoileaEchipament);
 
 
-		Admin observer=new Admin();
-		echipService.addObserver(observer);
-		echipService.setInchiriat("80");
+
 
 	}
 

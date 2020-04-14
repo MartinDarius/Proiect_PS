@@ -8,6 +8,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.List;
 
 public class MonitorRepo {
     private EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("proiectPS");
@@ -53,6 +54,19 @@ public class MonitorRepo {
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    public List<SkiMonitor> findByEmail(String email){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Query query=entityManager.createQuery("SELECT cl FROM SkiMonitor cl WHERE cl.email=?1");
+        //Client client = entityManager.find(Client.class, email);
+        query.setParameter(1,email);
+        List<SkiMonitor> lista=query.getResultList();
+        //entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return lista;
     }
 
 }

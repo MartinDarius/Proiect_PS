@@ -1,15 +1,15 @@
 package com.example.sd2020.demo.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name="Instructori")
+
 public class SkiMonitor {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
-    private Integer id;
+    private Integer id_monitor;
 
     private String nume;
     private String email;
@@ -17,6 +17,10 @@ public class SkiMonitor {
     private boolean echipament;
     private boolean disponibilitate;
     private String tip;
+
+    @OneToMany(mappedBy = "skiMonitor", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    private List<Client> clienti;
+
 
     public SkiMonitor(String nume,String email,String password,boolean echipament,boolean disponibilitate,String tip){
         this.nume=nume;
@@ -27,6 +31,16 @@ public class SkiMonitor {
         this.tip=tip;
     }
 
+    public SkiMonitor(String nume,String email,String password,boolean echipament,boolean disponibilitate,String tip,List<Client>clienti){
+        this.nume=nume;
+        this.email=email;
+        this.password=password;
+        this.echipament=echipament;
+        this.disponibilitate=disponibilitate;
+        this.tip=tip;
+        this.clienti=clienti;
+    }
+
 
 
     public SkiMonitor() {
@@ -34,11 +48,11 @@ public class SkiMonitor {
     }
 
     public Integer getId() {
-        return id;
+        return id_monitor;
     }
 
     public void setId(Integer id) {
-        this.id = id;
+        this.id_monitor = id;
     }
 
     public String getNume() {

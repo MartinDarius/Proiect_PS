@@ -7,6 +7,7 @@ import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.Query;
 import java.util.ArrayList;
+import java.util.List;
 
 public class AdminRepo {
 
@@ -53,6 +54,19 @@ public class AdminRepo {
 
         entityManager.getTransaction().commit();
         entityManager.close();
+    }
+
+    public List<Admin> findByEmail(String email){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+        Query query=entityManager.createQuery("SELECT cl FROM Admin cl WHERE cl.email=?1");
+        //Client client = entityManager.find(Client.class, email);
+        query.setParameter(1,email);
+        List<Admin> lista=query.getResultList();
+        //entityManager.getTransaction().commit();
+        entityManager.close();
+
+        return lista;
     }
 
 }

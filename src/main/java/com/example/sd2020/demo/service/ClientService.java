@@ -1,7 +1,9 @@
 package com.example.sd2020.demo.service;
 
 import com.example.sd2020.demo.entity.Client;
+import com.example.sd2020.demo.entity.Echipament;
 import com.example.sd2020.demo.repository.ClientRepo;
+import com.example.sd2020.demo.repository.EchipamentRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,6 +11,7 @@ import java.util.List;
 public class ClientService {
 
     ClientRepo repo=new ClientRepo();
+    EchipamentRepo repoEchip=new EchipamentRepo();
 
     /**
      * Insereaza un client in baza de date
@@ -28,9 +31,9 @@ public class ClientService {
         return client;
     }
 
-    public List<Client> findByEmail(String email) {
+    public Client findByEmail(String email) {
       List<Client> lista=repo.findByEmail(email);
-      return lista;
+      return lista.get(0);
     }
 
     /**
@@ -66,5 +69,13 @@ public class ClientService {
      */
     public int NrOfClients(){
         return repo.NrOfClients();
+    }
+
+    public Echipament inchiriazaEchipament(Long idEchip){
+        String sId=idEchip.toString();
+        Echipament echip=repoEchip.findById(sId);
+            return echip;
+
+
     }
 }

@@ -62,8 +62,9 @@ public class ClientController {
     @RequestMapping(value={"/insertClient"},method=RequestMethod.POST)
     public String insertClientRequest(@RequestBody Client client) throws ParseException{
         int inainte=clientService.NrOfClients();
-        clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getEchipament(),client.getTip(),client.getMonitor()));
-        int dupa=clientService.NrOfClients();
+        //clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getEchipament(),client.getTip(),client.getMonitor()));
+        clientService.insertClient(new Client(client.getNume(),client.getEmail(),client.getPassword(),client.getEchipament(),client.getTip(),client.getMonitor()));
+        int dupa=clientService.NrOfClients(); //String nume,String email,String password,boolean echipament,String tip,boolean monitor,List<Echipament> echipamente,SkiMonitor skiMonitor
         if(inainte==dupa){
             return "This client was not inserted in BD!";
         }

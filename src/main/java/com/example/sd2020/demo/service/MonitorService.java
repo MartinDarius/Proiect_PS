@@ -4,6 +4,7 @@ import com.example.sd2020.demo.entity.SkiMonitor;
 import com.example.sd2020.demo.repository.MonitorRepo;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class MonitorService {
     MonitorRepo repo=new MonitorRepo();
@@ -48,5 +49,11 @@ public class MonitorService {
         }
         repo.delete(monitor);
         return true;
+    }
+
+
+    public SkiMonitor findByEmail(String email) {
+        List<SkiMonitor> lista=repo.findByEmail(email);
+        return lista.get(0);
     }
 }

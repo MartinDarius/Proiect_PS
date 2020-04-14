@@ -1,5 +1,7 @@
 package com.example.sd2020.demo.entity;
 
+import com.example.sd2020.demo.service.ClientService;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,11 @@ public class Client {
     @OneToMany(mappedBy = "client", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     private List<Echipament> echipamente;
 
+    @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    @JoinColumn(name = "id_monitor")
+    private SkiMonitor skiMonitor;
+
+
     public Client(String nume,String email,boolean echipament,String tip,boolean monitor){
         this.nume=nume;
         this.email=email;
@@ -28,14 +35,13 @@ public class Client {
         this.monitor=monitor;
     }
 
-    public Client(String nume,String email,String password,boolean echipament,String tip,boolean monitor,List<Echipament> echipamente){
+    public Client(String nume,String email,String password,boolean echipament,String tip,boolean monitor){
         this.nume=nume;
         this.password=password;
         this.email=email;
         this.echipament=echipament;
         this.tip=tip;
         this.monitor=monitor;
-        this.echipamente=echipamente;
     }
 
     public Client() {
@@ -105,5 +111,25 @@ public class Client {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public SkiMonitor getSkiMonitor() {
+        return skiMonitor;
+    }
+
+    public void setSkiMonitor(SkiMonitor skiMonitor) {
+        this.skiMonitor = skiMonitor;
+    }
+
+    public List<Echipament> getEchipamente() {
+        return echipamente;
+    }
+
+    public void setEchipamente(List<Echipament> echipamente) {
+        this.echipamente = echipamente;
+    }
+
+    public void inchiriazaEchipament(Long id){
+
     }
 }
