@@ -86,18 +86,19 @@ public class ClientRepo {
     }
 
 
-
-    public void updateEchipament(Client e, boolean val){
+    /*
+    public void inchiriazaEchip(Client e, boolean val,Echipament echip){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
         e.updateEchipament(val);
+        e.adaugaEchipament(echip);
 
         entityManager.merge(e);
         entityManager.getTransaction().commit();
         entityManager.close();
 
     }
-
+*/
 
 }

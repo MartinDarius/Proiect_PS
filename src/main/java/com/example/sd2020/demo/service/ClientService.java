@@ -71,11 +71,13 @@ public class ClientService {
         return repo.NrOfClients();
     }
 
-    public Echipament inchiriazaEchipament(Long idEchip){
+    public void inchiriazaEchipament(Long idClient,Long idEchip){
         String sId=idEchip.toString();
+        String cId=idClient.toString();
         Echipament echip=repoEchip.findById(sId);
-            return echip;
-
+        Client client=repo.findById(cId);
+       // repo.inchiriazaEchip(client,true,echip);
+        repoEchip.inchiriazaEchip(client,true,echip);
 
     }
 }

@@ -1,5 +1,7 @@
 package com.example.sd2020.demo.Controller;
 
+
+import com.example.sd2020.demo.entity.Admin;
 import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.service.ClientService;
 import org.springframework.http.HttpStatus;
@@ -8,11 +10,13 @@ import org.springframework.web.bind.annotation.*;
 
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 public class ClientController {
 
     ClientService clientService=new ClientService();
+
 
     /**
      * Afiseaza toti clientii din BD
@@ -47,7 +51,7 @@ public class ClientController {
      */
     @RequestMapping(value={"/findClientByEmail"},method= RequestMethod.GET)
     public Client findClientByEmail( @RequestBody String email) throws ParseException {
-        return clientService.findByEmail(email).get(0);
+        return clientService.findByEmail(email);
     }
 
 

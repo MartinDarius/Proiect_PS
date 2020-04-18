@@ -25,26 +25,21 @@ public class DemoApplication {
 		ClientService clientServ=new ClientService();
 		MonitorService monitorService= new MonitorService();
 
+		//clientServ.inchiriazaEchipament(4L,3L);
+
 		//ad.addAdmin();
 
-		//Echipament primulEchipament=new Echipament("Head","ski",false);
-		//Echipament alDoileaEchipament=new Echipament("Ficher","ski",false);
+		Echipament primulEchipament=new Echipament("Head","ski",false);
+		Echipament alDoileaEchipament=new Echipament("Ficher","ski",false);
 
 
+        Client primul=new Client("Mihai","Ioan@yahoo.com","pass",false,"incepator",false);
 
+		 //clientServ.insertClient(primul);
+         //echipService.insert(primulEchipament);
+       //  echipService.insert(alDoileaEchipament);
 
-		//ArrayList<Echipament> echipamente=new ArrayList<Echipament>();
-		//echipamente.add(primulEchipament);
-		//echipamente.add(alDoileaEchipament);
-
-
-        //Client primul=new Client("Ionela","Ioan@yahoo.com","pass",false,"incepator",false,echipamente);
-		//primulEchipament.setClient(primul);
-		//alDoileaEchipament.setClient(primul);
-		//clientServ.insertClient(primul);
-        //echipService.insert(primulEchipament);
-		//echipService.insert(alDoileaEchipament);
-
+         clientServ.inchiriazaEchipament(Long.valueOf(43),Long.valueOf(44));
 
 
 

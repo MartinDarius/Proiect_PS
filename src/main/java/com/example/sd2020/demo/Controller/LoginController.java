@@ -12,6 +12,8 @@ import com.example.sd2020.demo.service.MonitorService;
 import javax.swing.*;
 
 public class LoginController {
+
+
     public void login(String numeIntrodus, String parolaIntrodusa) {
 
         AdminService adminServ = new AdminService();
@@ -49,6 +51,7 @@ public class LoginController {
                 if(parolaIntrodusa.equals(admin.getPassword())) {
                     System.out.println("SUCCESS ! ");
                     //GUIAdmin adminGUI= new GUIAdmin();
+
                 }
                 else {
                     wrong++;
@@ -59,6 +62,7 @@ public class LoginController {
                     if(parolaIntrodusa.equals(client.getPassword())) {
                         System.out.println("SUCCESS ! ");
                         //GUIAngajat guiAngajat = new GUIAngajat(angajat.getEmailAngajat());
+
                     }else{
                         wrong++;
                     }

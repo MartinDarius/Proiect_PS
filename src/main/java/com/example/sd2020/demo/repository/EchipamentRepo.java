@@ -1,6 +1,7 @@
 package com.example.sd2020.demo.repository;
 
 import com.example.sd2020.demo.entity.Admin;
+import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.entity.Echipament;
 
 import javax.persistence.EntityManager;
@@ -62,6 +63,19 @@ public class EchipamentRepo {
         t.setStare(val);
 
         entityManager.merge(t);
+        entityManager.getTransaction().commit();
+        entityManager.close();
+
+    }
+
+    public void inchiriazaEchip(Client e, boolean val, Echipament echip){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        echip.setClient(e);
+        echip.setStare(val);
+
+        entityManager.merge(echip);
         entityManager.getTransaction().commit();
         entityManager.close();
 

@@ -19,8 +19,8 @@ public class Client {
     private String tip;
     private boolean monitor;
 
-    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    private List<Echipament> echipamente;
+    //@OneToMany(mappedBy = "client", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
+    //private List<Echipament> echipamente;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     @JoinColumn(name = "id_monitor")
@@ -45,10 +45,8 @@ public class Client {
     }
 
     public Client() {
-        this.echipamente=new ArrayList<Echipament>();
 
     }
-
 
 
     public Integer getId() {
@@ -99,10 +97,6 @@ public class Client {
         this.monitor = monitor;
     }
 
-    public String toString(){
-        return this.nume+" "+this.email;
-    }
-
     public void updateEchipament(boolean val){ this.echipament=val;}
 
     public String getPassword() {
@@ -121,15 +115,19 @@ public class Client {
         this.skiMonitor = skiMonitor;
     }
 
-    public List<Echipament> getEchipamente() {
-        return echipamente;
-    }
 
-    public void setEchipamente(List<Echipament> echipamente) {
-        this.echipamente = echipamente;
-    }
 
-    public void inchiriazaEchipament(Long id){
-
+    @Override
+    public String toString() {
+        return "Client{" +
+                "id_client=" + id_client +
+                ", nume='" + nume + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", echipament=" + echipament +
+                ", tip='" + tip + '\'' +
+                ", monitor=" + monitor +
+                ", skiMonitor=" + skiMonitor +
+                '}';
     }
 }

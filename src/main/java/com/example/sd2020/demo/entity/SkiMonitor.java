@@ -18,8 +18,7 @@ public class SkiMonitor {
     private boolean disponibilitate;
     private String tip;
 
-    @OneToMany(mappedBy = "skiMonitor", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    private List<Client> clienti;
+
 
 
     public SkiMonitor(String nume,String email,String password,boolean echipament,boolean disponibilitate,String tip){
@@ -31,15 +30,6 @@ public class SkiMonitor {
         this.tip=tip;
     }
 
-    public SkiMonitor(String nume,String email,String password,boolean echipament,boolean disponibilitate,String tip,List<Client>clienti){
-        this.nume=nume;
-        this.email=email;
-        this.password=password;
-        this.echipament=echipament;
-        this.disponibilitate=disponibilitate;
-        this.tip=tip;
-        this.clienti=clienti;
-    }
 
 
 
