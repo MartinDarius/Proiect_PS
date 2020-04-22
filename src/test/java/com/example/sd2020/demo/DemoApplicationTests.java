@@ -65,7 +65,7 @@ public class DemoApplicationTests {
     //Asa ar trebui facute toate testele? Ca nu am inteles prea bine....
 	@Test
 	public void testFindClientById(){
-		when(sampleOperations.FindClientById("6")).thenReturn(new Client("Ioan","Ioan@yahoo.com",false,"incepator",true));
+		when(sampleOperations.FindClientById("6")).thenReturn(new Client("Ioan","Ioan@yahoo.com","pass","ski"));
 		assertEquals("Ioan",facadeSample.findClient("6").getNume());
 		verify(sampleOperations).FindClientById("6");
 	}

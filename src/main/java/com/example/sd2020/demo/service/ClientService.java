@@ -2,8 +2,10 @@ package com.example.sd2020.demo.service;
 
 import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.entity.Echipament;
+import com.example.sd2020.demo.entity.SkiMonitor;
 import com.example.sd2020.demo.repository.ClientRepo;
 import com.example.sd2020.demo.repository.EchipamentRepo;
+import com.example.sd2020.demo.repository.MonitorRepo;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,6 +14,7 @@ public class ClientService {
 
     ClientRepo repo=new ClientRepo();
     EchipamentRepo repoEchip=new EchipamentRepo();
+    MonitorRepo repoMonitor=new MonitorRepo();
 
     /**
      * Insereaza un client in baza de date
@@ -71,13 +74,36 @@ public class ClientService {
         return repo.NrOfClients();
     }
 
-    public void inchiriazaEchipament(Long idClient,Long idEchip){
-        String sId=idEchip.toString();
-        String cId=idClient.toString();
-        Echipament echip=repoEchip.findById(sId);
-        Client client=repo.findById(cId);
-       // repo.inchiriazaEchip(client,true,echip);
-        repoEchip.inchiriazaEchip(client,true,echip);
 
+
+    /**
+     *
+     * @param idClient id ul clientului care o sa angajeze un instructor
+     * @param idMonitor id ul instructorului care o sa fie angajat
+     */
+    public void angajeazaMonitor(Long idClient,Long idMonitor){
+        String mId=idMonitor.toString();
+        String cId=idClient.toString();
+        SkiMonitor m=repoMonitor.findById(mId);
+        Client c=repo.findById(cId);
+        repo.angajeazaMonitor(c,m);
     }
+
+
+
+    /**
+     *
+     * @param idClient id ul clientului care concediaza monitorul
+     * @param idMonitor id ul monitorului care este concediat
+     */
+    public void concediazaMonitor(Long idClient,Long idMonitor){
+        String mId=idMonitor.toString();
+        String cId=idClient.toString();
+        Client client=repo.findById(cId);
+        SkiMonitor monitor=repoMonitor.findById(mId);
+        if(client.getSkiMonitor().getId()==monitor.getId()){
+            repo.concediazaMonitor(client);
+        }
+    }
+
 }

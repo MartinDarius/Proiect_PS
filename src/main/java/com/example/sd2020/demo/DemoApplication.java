@@ -12,6 +12,7 @@ import com.example.sd2020.demo.service.MonitorService;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import javax.management.monitor.Monitor;
 import java.util.ArrayList;
 
 @SpringBootApplication
@@ -25,22 +26,15 @@ public class DemoApplication {
 		ClientService clientServ=new ClientService();
 		MonitorService monitorService= new MonitorService();
 
-		//clientServ.inchiriazaEchipament(4L,3L);
-
-		//ad.addAdmin();
-
-		Echipament primulEchipament=new Echipament("Head","ski",false);
-		Echipament alDoileaEchipament=new Echipament("Ficher","ski",false);
 
 
-        Client primul=new Client("Mihai","Ioan@yahoo.com","pass",false,"incepator",false);
 
-		 //clientServ.insertClient(primul);
-         //echipService.insert(primulEchipament);
-       //  echipService.insert(alDoileaEchipament);
 
-         clientServ.inchiriazaEchipament(Long.valueOf(43),Long.valueOf(44));
+ 		 //clientServ.angajeazaMonitor(Long.valueOf(48),Long.valueOf(47));
+         //echipService.inchiriazaEchipament(Long.valueOf(48),Long.valueOf(51));
 
+         echipService.restituieEchipament(Long.valueOf(48),Long.valueOf(51));
+         //clientServ.concediazaMonitor(Long.valueOf(48),Long.valueOf(47));
 
 
 	}

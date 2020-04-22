@@ -29,7 +29,7 @@ public class MonitorController {
 
     @RequestMapping(value={"/insertMonitor"},method=RequestMethod.POST)
     public String insertMonitorRequest(@RequestBody SkiMonitor monitor) throws ParseException{
-        monitorService.insertMonitor(new SkiMonitor(monitor.getNume(),monitor.getEmail(),monitor.getPassword(),monitor.getEchipament(),monitor.getDisponibilitate(),monitor.getTip()));
+        monitorService.insertMonitor(new SkiMonitor(monitor.getNume(),monitor.getEmail(),monitor.getPassword(),monitor.getDisponibilitate()));
         return "Inserted successfuly";
     }
 

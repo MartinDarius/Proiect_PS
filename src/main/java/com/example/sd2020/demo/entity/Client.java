@@ -15,9 +15,9 @@ public class Client {
     private String nume;
     private String email;
     private String password;
-    private boolean echipament;
+  //  private boolean echipament;
     private String tip;
-    private boolean monitor;
+   // private boolean monitor;
 
     //@OneToMany(mappedBy = "client", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     //private List<Echipament> echipamente;
@@ -27,21 +27,13 @@ public class Client {
     private SkiMonitor skiMonitor;
 
 
-    public Client(String nume,String email,boolean echipament,String tip,boolean monitor){
-        this.nume=nume;
-        this.email=email;
-        this.echipament=echipament;
-        this.tip=tip;
-        this.monitor=monitor;
-    }
 
-    public Client(String nume,String email,String password,boolean echipament,String tip,boolean monitor){
+
+    public Client(String nume,String email,String password,String tip){
         this.nume=nume;
         this.password=password;
         this.email=email;
-        this.echipament=echipament;
         this.tip=tip;
-        this.monitor=monitor;
     }
 
     public Client() {
@@ -81,23 +73,6 @@ public class Client {
         this.tip = tip;
     }
 
-    public boolean getEchipament() {
-        return echipament;
-    }
-
-    public void setEchipamnet(boolean echipament) {
-        this.echipament = echipament;
-    }
-
-    public boolean getMonitor() {
-        return monitor;
-    }
-
-    public void setMonitor(boolean monitor) {
-        this.monitor = monitor;
-    }
-
-    public void updateEchipament(boolean val){ this.echipament=val;}
 
     public String getPassword() {
         return password;
@@ -124,9 +99,7 @@ public class Client {
                 ", nume='" + nume + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", echipament=" + echipament +
                 ", tip='" + tip + '\'' +
-                ", monitor=" + monitor +
                 ", skiMonitor=" + skiMonitor +
                 '}';
     }

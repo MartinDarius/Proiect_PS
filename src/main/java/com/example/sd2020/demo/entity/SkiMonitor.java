@@ -14,20 +14,18 @@ public class SkiMonitor {
     private String nume;
     private String email;
     private String password;
-    private boolean echipament;
     private boolean disponibilitate;
-    private String tip;
+   // private String tip;
 
 
 
 
-    public SkiMonitor(String nume,String email,String password,boolean echipament,boolean disponibilitate,String tip){
+    public SkiMonitor(String nume,String email,String password,boolean disponibilitate){
         this.nume=nume;
         this.email=email;
         this.password=password;
-        this.echipament=echipament;
         this.disponibilitate=disponibilitate;
-        this.tip=tip;
+     //   this.tip=tip;
     }
 
 
@@ -60,7 +58,7 @@ public class SkiMonitor {
     public void setEmail(String email) {
         this.email = email;
     }
-
+/*
     public String getTip() {
         return tip;
     }
@@ -68,15 +66,7 @@ public class SkiMonitor {
     public void setTip(String tip) {
         this.tip = tip;
     }
-
-    public boolean getEchipament() {
-        return echipament;
-    }
-
-    public void setEchipamnet(boolean echipament) {
-        this.echipament = echipament;
-    }
-
+*/
     public boolean getDisponibilitate() {
         return disponibilitate;
     }

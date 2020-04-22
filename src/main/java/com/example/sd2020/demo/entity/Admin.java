@@ -57,6 +57,7 @@ public class Admin implements Observator {
     public void setEmail(String email) {
         this.email = email;
     }
+
     //metoda care se suprascrie
     @Override
     public void update(Object news) {

@@ -14,7 +14,7 @@ public class TestOberver {
         EchipamentService echipService = new EchipamentService();
 
         echipService.addObserver(observer);
-        echipService.setInchiriat("80");
-        assertEquals(observer.getNews(), "Echipamentul cu id-ul:80 a fost inchiriat.");
+        echipService.inchiriazaEchipament(Long.valueOf(48),Long.valueOf(51));
+        assertEquals(observer.getNews(), "Echipamentul cu id-ul:51 a fost inchiriat de catre clientul cu numele Darius");
     }
 }

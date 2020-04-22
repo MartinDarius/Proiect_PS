@@ -68,16 +68,27 @@ public class EchipamentRepo {
 
     }
 
-    public void inchiriazaEchip(Client e, boolean val, Echipament echip){
+    public void inchiriazaEchip(Client e, Echipament echip){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
         echip.setClient(e);
-        echip.setStare(val);
+        echip.setStare(true);
 
         entityManager.merge(echip);
         entityManager.getTransaction().commit();
         entityManager.close();
 
+    }
+    public void restituieEchip(Echipament echip){
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        entityManager.getTransaction().begin();
+
+        echip.setClient(null);
+        echip.setStare(false);
+
+        entityManager.merge(echip);
+        entityManager.getTransaction().commit();
+        entityManager.close();
     }
 }

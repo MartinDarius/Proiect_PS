@@ -3,6 +3,7 @@ package com.example.sd2020.demo.repository;
 import com.example.sd2020.demo.entity.Admin;
 import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.entity.Echipament;
+import com.example.sd2020.demo.entity.SkiMonitor;
 import com.example.sd2020.demo.service.ClientService;
 
 import javax.persistence.EntityManager;
@@ -85,20 +86,31 @@ public class ClientRepo {
         entityManager.close();
     }
 
+     public void angajeazaMonitor(Client client, SkiMonitor monitor){
+         EntityManager entityManager = entityManagerFactory.createEntityManager();
+         entityManager.getTransaction().begin();
 
-    /*
-    public void inchiriazaEchip(Client e, boolean val,Echipament echip){
+         client.setSkiMonitor(monitor);
+         //client.setMonitor(true);
+
+         entityManager.merge(client);
+         entityManager.getTransaction().commit();
+         entityManager.close();
+
+     }
+
+    public void concediazaMonitor(Client client){
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         entityManager.getTransaction().begin();
 
-        e.updateEchipament(val);
-        e.adaugaEchipament(echip);
+        client.setSkiMonitor(null);
+        //client.setMonitor(true);
 
-        entityManager.merge(e);
+        entityManager.merge(client);
         entityManager.getTransaction().commit();
         entityManager.close();
 
     }
-*/
+
 
 }

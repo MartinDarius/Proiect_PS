@@ -1,6 +1,8 @@
 package com.example.sd2020.demo.service;
 
+import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.entity.Echipament;
+import com.example.sd2020.demo.repository.ClientRepo;
 import com.example.sd2020.demo.repository.EchipamentRepo;
 
 import java.util.ArrayList;
@@ -8,6 +10,7 @@ import java.util.List;
 
 public class EchipamentService {
     EchipamentRepo repo=new EchipamentRepo();
+    ClientRepo clientRepo=new ClientRepo();
     private String news;
     private List<Observator> observatori=new ArrayList<>();
 
@@ -61,13 +64,35 @@ public class EchipamentService {
         return true;
     }
 
-    public void setInchiriat(String id){
-
-        Echipament echip=repo.findById(id);
-        repo.updateStare(echip,true);
-        this.news="Echipamentul cu id-ul:"+id+" a fost inchiriat.";
+    /**
+     *
+     * @param idClient id ul clientului care o sa inchirieze echipamentul
+     * @param idEchip id ul echipamentului care o sa fie inchiriat
+     */
+    public void inchiriazaEchipament(Long idClient,Long idEchip){
+        String sId=idEchip.toString();
+        String cId=idClient.toString();
+        Echipament echip=repo.findById(sId);
+        Client client=clientRepo.findById(cId);
+        repo.inchiriazaEchip(client,echip);
+        this.news="Echipamentul cu id-ul:"+sId+" a fost inchiriat de catre clientul cu numele "+client.getNume();
         for(Observator obs: this.observatori){
             obs.update(this.news);
+        }
+    }
+
+    /**
+     *
+     * @param idClient id ul clientului care restituie echipamentul
+     * @param idEchip id ul echipamentului care va fi restituit
+     */
+    public void restituieEchipament(Long idClient,Long idEchip){
+        String eId=idEchip.toString();
+        String cId=idClient.toString();
+        Echipament echip=repo.findById(eId);
+        Client client=clientRepo.findById(cId);
+        if(echip.getClient().getId()==client.getId()){
+            repo.restituieEchip(echip);
         }
 
     }
