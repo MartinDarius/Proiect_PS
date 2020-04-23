@@ -54,6 +54,9 @@ public class MonitorService {
 
     public SkiMonitor findByEmail(String email) {
         List<SkiMonitor> lista=repo.findByEmail(email);
-        return lista.get(0);
+        if(lista.size()>0)
+            return lista.get(0);
+        else
+            return null;
     }
 }

@@ -69,16 +69,21 @@ public class EchipamentService {
      * @param idClient id ul clientului care o sa inchirieze echipamentul
      * @param idEchip id ul echipamentului care o sa fie inchiriat
      */
-    public void inchiriazaEchipament(Long idClient,Long idEchip){
+    public boolean inchiriazaEchipament(Long idClient,Long idEchip){
         String sId=idEchip.toString();
         String cId=idClient.toString();
+        boolean ok=false;
         Echipament echip=repo.findById(sId);
         Client client=clientRepo.findById(cId);
-        repo.inchiriazaEchip(client,echip);
-        this.news="Echipamentul cu id-ul:"+sId+" a fost inchiriat de catre clientul cu numele "+client.getNume();
-        for(Observator obs: this.observatori){
-            obs.update(this.news);
+        if(echip.getClient()==null) {
+            repo.inchiriazaEchip(client, echip);
+            this.news = "Echipamentul cu id-ul:" + sId + " a fost inchiriat de catre clientul cu numele " + client.getNume();
+            for (Observator obs : this.observatori) {
+                obs.update(this.news);
+            }
+            ok=true;
         }
+        return ok;
     }
 
     /**
@@ -95,6 +100,17 @@ public class EchipamentService {
             repo.restituieEchip(echip);
         }
 
+    }
+
+
+    public ArrayList<Echipament> echipamenteDisponibile(){
+        ArrayList<Echipament> lista1=repo.findAll();
+        ArrayList<Echipament> listaFinala=new ArrayList<Echipament>();
+        for(Echipament e : lista1){
+            if(e.getClient()==null)
+                listaFinala.add(e);
+        }
+        return listaFinala;
     }
 
 }

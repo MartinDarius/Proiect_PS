@@ -87,4 +87,22 @@ public class ClientController {
         }
         return new ResponseEntity<>(id,HttpStatus.OK);
     }
+
+    @RequestMapping(value={"/angajeazaInstructor"},method=RequestMethod.POST)
+    public String angajeazaInstructor(@RequestParam(value="idClient")String idClient,@RequestParam(value="idMonitor")String idMonitor){
+        long cId=Long.parseLong(idClient);
+        long mId=Long.parseLong(idMonitor);
+        clientService.angajeazaMonitor(cId,mId);
+        return "Instructorul a fost angajat!";
+    }
+
+    @RequestMapping(value={"/concediazaInstructor"},method=RequestMethod.POST)
+    public String concediazaInstructor(@RequestParam(value="idClient")String idClient,@RequestParam(value="idMonitor")String idMonitor){
+        long cId=Long.parseLong(idClient);
+        long mId=Long.parseLong(idMonitor);
+        clientService.concediazaMonitor(cId,mId);
+        return "Instructorul a fost concediat!";
+    }
+
+
 }

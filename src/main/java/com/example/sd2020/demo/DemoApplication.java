@@ -1,5 +1,6 @@
 package com.example.sd2020.demo;
 
+import com.example.sd2020.demo.Controller.LoginController;
 import com.example.sd2020.demo.entity.Admin;
 import com.example.sd2020.demo.entity.Client;
 import com.example.sd2020.demo.entity.Echipament;
@@ -27,16 +28,8 @@ public class DemoApplication {
 		MonitorService monitorService= new MonitorService();
 
 
-
-
-
- 		 //clientServ.angajeazaMonitor(Long.valueOf(48),Long.valueOf(47));
-         //echipService.inchiriazaEchipament(Long.valueOf(48),Long.valueOf(51));
-
-         echipService.restituieEchipament(Long.valueOf(48),Long.valueOf(51));
-         //clientServ.concediazaMonitor(Long.valueOf(48),Long.valueOf(47));
-
-
+		LoginController login=new LoginController();
+		login.login("darius@yahoo.com","pass");
 	}
 
 }

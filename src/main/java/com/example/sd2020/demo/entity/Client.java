@@ -15,12 +15,7 @@ public class Client {
     private String nume;
     private String email;
     private String password;
-  //  private boolean echipament;
     private String tip;
-   // private boolean monitor;
-
-    //@OneToMany(mappedBy = "client", fetch = FetchType.EAGER,cascade=CascadeType.ALL)
-    //private List<Echipament> echipamente;
 
     @ManyToOne(fetch = FetchType.EAGER,cascade=CascadeType.ALL)
     @JoinColumn(name = "id_monitor")

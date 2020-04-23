@@ -15,7 +15,6 @@ public class SkiMonitor {
     private String email;
     private String password;
     private boolean disponibilitate;
-   // private String tip;
 
 
 
@@ -25,7 +24,6 @@ public class SkiMonitor {
         this.email=email;
         this.password=password;
         this.disponibilitate=disponibilitate;
-     //   this.tip=tip;
     }
 
 
@@ -58,20 +56,13 @@ public class SkiMonitor {
     public void setEmail(String email) {
         this.email = email;
     }
-/*
-    public String getTip() {
-        return tip;
-    }
 
-    public void setTip(String tip) {
-        this.tip = tip;
-    }
-*/
+
     public boolean getDisponibilitate() {
         return disponibilitate;
     }
 
-    public void setTip(boolean disponibilitate) {
+    public void setDisponibilitate(boolean disponibilitate) {
         this.disponibilitate = disponibilitate;
     }
 

@@ -18,6 +18,11 @@ public class EchipamentController {
         return echipamentService.findAll();
     }
 
+    @GetMapping("/EchipamenteDisponibile")
+    public ArrayList<Echipament> echipamenteDisponibile(){
+        return echipamentService.echipamenteDisponibile();
+    }
+
     @RequestMapping(value={"/findEchipament"},method= RequestMethod.GET)
     public Echipament findEchipamentById(@RequestBody int id) throws ParseException {
         String sId=Integer.toString(id);
@@ -41,4 +46,26 @@ public class EchipamentController {
         }
         return new ResponseEntity<>(id,HttpStatus.OK);
     }
+
+    @RequestMapping(value={"/inchiriazaEchipament"},method=RequestMethod.POST)
+    public String inchiriazaEchipament(@RequestParam(value="idClient")String idClient,@RequestParam(value="idEchip")String idEchip){
+        long cId=Long.parseLong(idClient);
+        long eId=Long.parseLong(idEchip);
+        boolean ok;
+        ok=echipamentService.inchiriazaEchipament(cId,eId);
+        if(ok)
+        return "S-a inchiriat echipamentul!";
+        else
+        return "Echipamentul este deja inchiriat!";
+    }
+
+    @RequestMapping(value={"/restituieEchipament"},method=RequestMethod.POST)
+    public String restituieEchipament(@RequestParam(value="idClient")String idClient,@RequestParam(value="idEchip")String idEchip){
+        long cId=Long.parseLong(idClient);
+        long eId=Long.parseLong(idEchip);
+        echipamentService.restituieEchipament(cId,eId);
+        return "S-a restituit echipamentul!";
+    }
+
+
 }

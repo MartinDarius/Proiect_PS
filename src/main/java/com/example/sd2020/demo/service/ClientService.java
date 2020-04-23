@@ -36,7 +36,10 @@ public class ClientService {
 
     public Client findByEmail(String email) {
       List<Client> lista=repo.findByEmail(email);
-      return lista.get(0);
+      if(lista.size()>0)
+        return lista.get(0);
+      else
+          return null;
     }
 
     /**

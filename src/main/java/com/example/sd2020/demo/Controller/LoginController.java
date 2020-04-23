@@ -32,18 +32,19 @@ public class LoginController {
         int wrong = 0;
 
         if(numeIntrodus.equals("")) {
-            JOptionPane.showMessageDialog(null,"Please insert an username !");
+            //JOptionPane.showMessageDialog(null,"Please insert an username !");
             return;
         }
 
         if(parolaIntrodusa.equals("")) {
-            JOptionPane.showMessageDialog(null,"Please insert a password !");
+            //JOptionPane.showMessageDialog(null,"Please insert a password !");
             return;
         }
 
-        if(admin == null && client == null){
+        if(admin == null && client == null && monitor==null){
             wrong++;
-            JOptionPane.showMessageDialog(null,"Wrong username or password. Try again");
+            //JOptionPane.showMessageDialog(null,"Wrong username or password. Try again");
+            System.out.println("Teapta!");
         }
 
         if(wrong == 0){
@@ -86,7 +87,8 @@ public class LoginController {
         }
 
         if(wrong > 0) {
-            JOptionPane.showMessageDialog(null,"Wrong username or password. Try again");
+            //JOptionPane.showMessageDialog(null,"Wrong username or password. Try again");
+            System.out.println("Teapa!");
         }
     }
 }
