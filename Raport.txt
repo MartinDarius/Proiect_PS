@@ -1,0 +1,3 @@
+Clientul cu numele: Marius are inchiriate urmatoarele echipamente:
+Casca Head
+Clapari Fisher

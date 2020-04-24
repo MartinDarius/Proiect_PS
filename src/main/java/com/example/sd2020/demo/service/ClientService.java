@@ -109,4 +109,20 @@ public class ClientService {
         }
     }
 
+
+    public ArrayList<Echipament> echipamenteleClientului(Long idClient){
+        String cId=idClient.toString();
+        Client client=repo.findById(cId);
+        ArrayList<Echipament> list1=repoEchip.findAll();
+        ArrayList<Echipament> list2=new ArrayList<Echipament>();
+        for(Echipament e: list1){
+            if(e.getClient()!=null) {
+                if (e.getClient().getId() == client.getId()) {
+                    list2.add(e);
+                }
+            }
+        }
+        return list2;
+    }
+
 }

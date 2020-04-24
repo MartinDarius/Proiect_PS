@@ -3,11 +3,15 @@ package com.example.sd2020.demo.Controller;
 
 import com.example.sd2020.demo.entity.Admin;
 import com.example.sd2020.demo.entity.Client;
+import com.example.sd2020.demo.entity.Echipament;
 import com.example.sd2020.demo.service.ClientService;
+import com.example.sd2020.demo.service.Raport;
+import com.example.sd2020.demo.service.RaportFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.List;
@@ -102,6 +106,24 @@ public class ClientController {
         long mId=Long.parseLong(idMonitor);
         clientService.concediazaMonitor(cId,mId);
         return "Instructorul a fost concediat!";
+    }
+
+
+    @RequestMapping(value= "/echipamenteleClientului",method= RequestMethod.GET)
+    public ArrayList<Echipament> echipamenteleClientului(@RequestBody long id) throws ParseException {
+        ArrayList<Echipament> lista=clientService.echipamenteleClientului(id);
+        return lista;
+
+    }
+
+    @RequestMapping(value={"/genereazaRaport"},method=RequestMethod.POST)
+    public String genereazaRaport(@RequestParam(value="idClient")String idClient,@RequestParam(value="extensie")String extensie) throws IOException {
+        long cId=Long.parseLong(idClient);
+        ArrayList<Echipament>lista=clientService.echipamenteleClientului(cId);
+        RaportFactory fact=new RaportFactory();
+        Raport raport=fact.createRaport(extensie);
+        raport.generareRaport(lista);
+        return "Raportul a fost generat!";
     }
 
 
