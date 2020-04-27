@@ -7,6 +7,11 @@ Acesta aplicatie ofera urmatoarele informatii:
  - Toti monitorii de ski sau snowboard care lucreaza la acest centru de inchirieri 
  - Toti schiorii care s-au inscris in aplicatie 
  - - Numele acestora, email-ul lor, daca acestia au sau nu au echipament, daca acestia si-au angajat un instructor de ski
+ - Un client poate sa vizualizeze ce echipamente are inchiriate 
+ - Un client poate sa inchirieze un echipament/ sa angajeze un instructor de ski 
+ - clientii si adminii se logheaza in functie de email-ul lor si parola asociata 
+ - adminul este notificat de fiecare data cand un echipament este inchiriat
+ - se poate genera un raport cu lista de inchirieri a fiecarui client, acesta se poate reprezenta in txt sau html.
  
 Operatiile posibile asupra bazei de date sunt urmatoarele:
 - inserarea unui client/unui echipament/unui admin/unui instructor de ski
