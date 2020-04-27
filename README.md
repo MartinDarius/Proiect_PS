@@ -40,3 +40,6 @@ In aplicatie avem si un pachet pentru teste unde se testeaza diverse metode prin
 
  # Diagrama de pachete
 ![Package Diagram](pachete.png)
+
+ # Diagrama de clase pentru Patternul Factory 
+ ![Factory Diagram](Factory.png)
