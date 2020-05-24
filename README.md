@@ -35,6 +35,26 @@ In intermediul aplicatiei avem in pachetul entity 4 clase principale care sunt s
 Aceste operatii le efectuam prin intermediul pachetului Service care face legatura repository-ului cu restul aplicatiei.
 In aplicatie avem si un pachet pentru teste unde se testeaza diverse metode prin intermediul API-ului Mockito. 
 
+ # Design-ul aplicatiei 
+ Partea de front-end este realizata cu JavaScript, HTML si CSS. Avem 3 pagini principale:
+    -pagina de login, unde introducem email-ul si parola 
+    -pagina de admin, unde putem sa vizualizam toti clientii, toate echipamentele, toti instructorii, putem sa introducem/sa stergem din baza de date un client/un echipament/un instructor. Putem sa gasim un client dupa id, dupa email, etc.
+    -pagina de client, unde putem sa vizualizam toate echipamentele disponibile si toti instructorii.De aici putem sa inchiriem un echipament sau sa il restituim, putem sa angajam un instructor sau sa il concediem, prin intermediul id-urilor personale. Putem sa generam un raport in diferite formate: txt sau html in care avem toate echipamentele inchiriate de o anumita persoana, si putem sa vizualizam si toate echipamentele unui client direct in interfata. 
+    Design-ul este relativ simplu, acesta ar putea fi imbunatatit pe viitor. 
+
+ 
+ # Interfata login
+![Login UI](login.png)
+
+
+ # Interfata Admin
+![Admin UI](admin.png)
+
+
+ # Interfata Client
+![Client UI](client.png)
+
+
  # Diagrama Use Case
 ![UseCase Diagram](UseCase.png)
 
