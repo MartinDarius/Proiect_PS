@@ -20,6 +20,7 @@ public class AdminService {
         Admin admin = new Admin();
         admin.setName("Darius");
         admin.setEmail("Darius@admin.com");
+        admin.setPassword("pass");
         repoAdmin.insert(admin);
     }
 
@@ -65,6 +66,11 @@ public class AdminService {
             return lista.get(0);
         else
            return null;
+    }
+
+    public void deleteAdmin(String id){
+        Admin admin=repoAdmin.findById(id);
+        repoAdmin.delete(admin);
     }
 
 }

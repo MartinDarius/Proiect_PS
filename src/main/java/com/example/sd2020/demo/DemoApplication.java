@@ -17,17 +17,11 @@ import java.util.ArrayList;
 @SpringBootApplication
 public class DemoApplication {
 
+
 	public static void main(String[] args) throws IOException {
 		SpringApplication.run(DemoApplication.class, args);
-		AdminService ad=new AdminService();
-
-		EchipamentService echipService=new EchipamentService();
-		ClientService clientServ=new ClientService();
-		MonitorService monitorService= new MonitorService();
 
 
-		LoginController login=new LoginController();
-		login.login("darius@yahoo.com","pass");
 
 
 	}
