@@ -67,6 +67,8 @@ In aplicatie avem si un pachet pentru teste unde se testeaza diverse metode prin
 
 });   
 ```   
+Aceasta este o functie din javascript prin care ne afisam in pagina html toate echipamentele disponibile din inventar. Se apasa pe butonul care are id-ul:request_echipamente_disponibile si atunci se apeleaza functia, facem un apel de tip GET prin intermediul url-ului: 'http://localhost:8080/EchipamenteDisponibile', iar aceasta functie va returna lista de echipamente in variabila data. Iteram peste aceasta lista si concatenam la "str" id-ul si numele fiecarui echipament. Iar la final afisam str-ul in text fieldul cu id-ul "echipamente_disponibile". 
+
 
  
  # Interfata login
